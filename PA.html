@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn">确定</button>
+    <p id="result">运算结果</p>
+    <script>
+        const trans = document.querySelector("#trans-btn");
+
+        function dec2bin2(){
+            let num = document.querySelector('#dec-number').value;
+            let numtxt = num.toString();
+            let result = document.querySelector("#result");
+            if (num % 3 == 0){
+                result.innerHTML = 'PA!'; 
+                setGameOver();
+            }else if(numtxt.indexOf('3') !== -1){
+                result.innerHTML = 'PA!'; 
+                setGameOver();
+            }else{
+                result.innerHTML = numtxt;
+            }
+        }
+
+        trans.addEventListener('click', dec2bin2);
+    </script>
+</body>
+</html>

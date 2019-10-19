@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>时间问候</title>
+</head>
+<body>
+
+  <p id="dome"></p>
+
+  <script type="text/javascript">
+
+    let dome = document.querySelector("#dome");
+    let D = new Date().getHours();
+    if(6 <= D < 11){
+      dome.innerHTML =  '上午好';
+    }else if(12 <= D < 17){
+      dome.innerHTML =  '下午好';
+    }else{
+      dome.innerHTML =  '晚上好';
+    }
+
+  </script>
+</body>
+</html>
