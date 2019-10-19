@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>时间问候</title>
+</head>
+<style type="text/css">
+  table{
+        border-collapse: collapse;
+  }
+  td{
+        display: inline-block;
+        width: 100px;
+        height: 20px;
+        border: 1px solid #fff;
+        background-color: rgb(120,200,255);
+  } 
+</style>
+<body>
+
+  <table>
+    <tbody id="container"></tbody>
+  </table>
+
+  <script type="text/javascript">
+
+    let container = document.querySelector("#container");
+
+    for(let x = 1;x < 10;x++){
+      let tr = document.createElement("tr");
+        for(let y = 1;y < 10;y++){
+          let td = document.createElement("td");
+          td.innerText = x + '*' + y + "=" + x*y;
+          tr.appendChild(td);
+       }
+       container.appendChild(tr);
+    }
+  </script>
+</body>
+</html>
