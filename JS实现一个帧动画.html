@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    #emmm{
+      position:relative; 
+      margin:50px 680px;
+    }
+    .dome{
+      position:absolute; 
+      width:480px; 
+      height:480px;
+      background-image:url(images\erik_ce204002.jpg);
+    }
+  </style>
+</head>
+<body>
+  <div id="emmm">
+    <div class="dome" id="dome"></div>
+  </div>
+  <script type="text/javascript">
+    const dome = document.getElementById('dome');
+    let i = 480;
+
+    function des0(){
+      let a ='480px '+ i +'px';
+      i += 480;
+      dome.style.setProperty('background-position',a);
+      let t = setTimeout('des0()',100);
+      console.log(i);
+      if (i == 8160) {
+        clearTimeout(t);
+      }
+    }
+    function des8160(){
+      let a ='480px '+ i +'px';
+      i -= 480;
+      dome.style.setProperty('background-position',a)
+      let t = setTimeout('des8160()',100);
+      console.log(i);
+      if (i == 480) {
+        clearTimeout(t);
+      }
+    }
+    function desQiDong(){
+      if (i == 480) {
+        des0();
+      } else if (i == 8160) {
+        des8160();
+      }
+      setTimeout('desQiDong()');
+    }
+
+    this.addEventListener('load',desQiDong);
+  </script>
+</body>
+</html>

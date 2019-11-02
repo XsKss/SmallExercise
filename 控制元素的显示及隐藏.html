@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>隐藏 显示</title>
+    <style>
+        select {
+            display: none;
+        }
+        .none{
+            display: none;
+        }
+        .inline{
+          display: inline;
+        }
+    </style>
+</head>
+<body>            
+    <label>
+        <input id="school" name="status" type="radio">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+    <script type="text/javascript">
+      const schools = document.getElementById('school-select');
+      const companys = document.getElementById('company-select');
+
+      //添加修改样式
+
+      document.getElementById('school').onclick = ()=> {
+        schools.style.display = 'inline';
+        companys.style.display = 'none';
+      }
+      document.getElementById('company').onclick = ()=> {
+        companys.style.display = 'inline';
+        schools.style.display = 'none';
+      } 
+
+      //添加替换css类名
+
+      // document.getElementById('school').onclick = ()=> {
+      //   schools.setAttribute('class','inline');
+      //   companys.setAttribute('class','none');
+      // }
+      // document.getElementById('company').onclick = ()=> {
+      //   companys.setAttribute('class','inline');
+      //   schools.setAttribute('class','none');
+      // }
+    </script>
+</body>
+</html>

@@ -11,14 +11,14 @@
 
     let dome = document.querySelector("#dome");
     let D = new Date().getHours();
-    if(6 <= D < 11){
+
+    if(6 <= D && D < 12){
       dome.innerHTML =  '上午好';
-    }else if(12 <= D < 17){
+    }else if(12 <= D && D < 18){
       dome.innerHTML =  '下午好';
     }else{
       dome.innerHTML =  '晚上好';
     }
-
   </script>
 </body>
 </html>
