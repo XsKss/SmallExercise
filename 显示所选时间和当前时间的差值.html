@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<select id="year-select">
+    <option value="1970">1970</option>
+    <option value="1980">1980</option>
+    <option value="1990">1990</option>
+    <option value="2000">2000</option>
+    <option value="2010">2010</option>
+    <option value="2020">2020</option>
+    <option value="2030">2030</option>
+    <option value="2040">2040</option>
+</select>
+年
+<select id="month-select">
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+月
+<select id="day-select">
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+</select>
+日
+<select id="hour-select">
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+</select>
+小时
+<select id="minite-select">
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="59">59</option>
+</select>
+分钟
+<select id="second-select">
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="59">59</option>
+</select>
+秒
+<p id="result-wrapper"></p>
+
+<script>
+  const select = document.getElementsByTagName('select');
+  const result = document.getElementById('result-wrapper');
+  let d = new Date();
+  let 天,时,分,秒,剩余时间,现在时间,选择时间;
+
+  for (var i = 0; i < select.length; i++) {
+    select[i].addEventListener("mouseup", resultWB);
+  }
+
+  function selects(i){
+    return select[i].value;
+  }
+
+//计算所选时间和当前时间的差值
+  function JiSuan() {
+    现在时间 = d.getTime();
+    选择时间 = Date.parse(""+ select[2].value +"/"+ select[2].value +"/"+ select[0].value);
+    if (现在时间 > 选择时间) {
+        剩余时间 = 现在时间 - 选择时间;
+    } else {
+        剩余时间 = 选择时间 - 现在时间;
+    }
+    // 套娃
+    天 = Math.floor(剩余时间/86400000);
+    时 = Math.floor((剩余时间%86400000)/3600000);
+    分 = Math.floor(((剩余时间%86400000)%3600000)/60000);
+    秒 = Math.floor((((剩余时间%86400000)%3600000)%60000)/1000);
+  }
+  function months(n) {
+        return select[1].getElementsByTagName('option')[n].innerText;
+    }
+//选择不同月份的时候，调整日期的可选范围,包括闰年2月
+  function YueFenRiQI() {
+    if (selects(1)==='02') {
+        select[2].getElementsByTagName('option')[30].style.display = 'none';
+        select[2].getElementsByTagName('option')[29].style.display = 'none';
+        select[2].getElementsByTagName('option')[28].style.display = 'inline';
+        if (((selects(0) % 4)==0)&&((selects(0) % 100)!=0)||((selects(0) % 400)==0)) {
+            select[2].getElementsByTagName('option')[28].style.display = 'none';
+        } 
+    } else if (selects(1)==='04'||selects(1)==='06'||selects(1)==='09'||selects(1)==='11') {
+        select[2].getElementsByTagName('option')[30].style.display = 'none';
+        select[2].getElementsByTagName('option')[29].style.display = 'inline';
+    } else {
+        select[2].getElementsByTagName('option')[30].style.display = 'inline';
+        select[2].getElementsByTagName('option')[29].style.display = 'inline';
+        select[2].getElementsByTagName('option')[28].style.display = 'inline';
+    }
+  }
+//判定时间进制
+  function JiShiPanDuan() {
+    if (现在时间 > 选择时间) {
+        时 += Number(selects(3));
+        分 += Number(selects(4));
+        秒 += Number(selects(5));
+        if (秒 >= 59) {
+            分 += 1;
+            秒 -= 59;
+        }
+        if (分 >= 59) {
+            时 += 1;
+            分 -= 59;
+        }
+        if (时 >= 24) {
+            天 += 1;
+            时 -= 23;
+        }
+    } else {
+        时 -= Number(selects(3));
+        分 -= Number(selects(4));
+        秒 -= Number(selects(5));
+        if (秒 <= 59) {
+            分 -= 1;
+            秒 += 59;
+        }
+        if (分 <= 59) {
+            时 -= 1;
+            分 += 59;
+        }
+        if (时 <= 0) {
+            天 -= 1;
+            时 += 23;
+        }
+    }
+  }
+//判定过去未来改变文本节点
+  function resultWB() {
+    YueFenRiQI();
+    JiSuan();
+    JiShiPanDuan();
+    let texta = '现在距离 '+ selects(0) +' 年 '+ selects(1) +' 月 '+ selects(2) +' 日 '+ selects(3) +':'+ selects(4) +':'+ selects(5);
+    let textb = 天 + '天' + 时 + '小时' + 分 + '分钟' + 秒 + '秒';
+    if (现在时间 > 选择时间) {
+        result.textContent = texta + ' 已经过去 ' + textb;
+    } else {
+        result.textContent = texta + ' 还有 ' + textb;
+    }
+  }
+</script>
+
+</body>
+</html>

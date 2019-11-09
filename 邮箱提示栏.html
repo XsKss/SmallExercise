@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<style type="text/css">
+    * {
+        -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        width: 184px;
+    }
+    input{
+        border: 0px;
+        width: 180px;
+        height: 30px;
+    }
+    li{
+        width: 184px;
+        height: 24px;
+        color: rgba(0,0,0,0.3);
+        display: none;
+        background-color: rgb(255,255,255);
+    }
+    .block{
+        display: block;
+    }
+    .none{
+        display: none;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="uls" class="email-sug"></ul>
+    </div>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    //在body元素中添加5个ul元素并修改颜色
+        for (var i = 0; i < postfixList.length; i++) {    
+                $(".email-sug").append("<li></li>");
+            }
+
+    //在ul元素中添加扩展内容
+        $("#email-input").keyup(()=> {
+            for (var i = 0; i < postfixList.length; i++) {
+                let $input = $("#email-input").val();
+                if (/@/.test($input)) {
+                    $input += postfixList[i];
+                } else{
+                    $input += '@'+postfixList[i];
+                }
+                $('li:eq('+i+')').text($input);
+            }
+        });
+
+    //判断输入框内容来显示或隐藏扩展栏
+        $("#email-input").bind('keydown keyup',()=> {
+            if ($("#email-input").val() === "") {
+                $('li').attr('class','none');
+            } else {
+                $('li').attr('class','block');
+            }
+        });
+
+    //选择扩展内容并添加到输入框
+        $('li').click((e)=> {
+            $("#email-input").val(e.target.textContent);
+        })
+
+    //触发改变颜色
+        $('li').mouseover((e)=> {
+            e.target.style.cssText ="background-color: rgba(255,0,0,0.1);";
+        })
+        $('li').mouseout((e)=> {
+            e.target.style.cssText ="background-color: rgba(0,0,0,0);";
+        })
+//、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+        // $(document).keydown(function (e) {
+        //     let $ulser = $('#uls .Backgroud').length;
+        //     if ($("li").attr('class') == "block") {
+        //         if(e.keyCode == 38) {
+        //             if ($ulser < 1) {
+        //                 $('#uls li:last').css({ "rgba(255,0,0,0.1)" }).addClass('Backgroud');
+        //             } else{
+        //                 $('#uls .Backgroud').removeClass('Backgroud').css({ "background": "" }).parent().prev().children().addClass("Backgroud").css({ "rgba(255,0,0,0.1)" });
+        //             }
+        //         } else if (e.keyCode == 40) {
+        //             if ($ulser < 1) {
+        //                 $('#uls li:last').css({"rgba(255,0,0,0.1)"}).addClass('Backgroud');
+        //             } else{
+        //                 $('#uls .Backgroud').removeClass('Backgroud').css({ "background": "" }).parent().next().children().addClass("Backgroud").css({ "rgba(255,0,0,0.1)" });
+        //             }
+        //         }
+        //     }
+        //     $ulser++;
+        // })
+    </script>
+</body>
+</html>
